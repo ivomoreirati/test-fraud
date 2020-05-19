@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  rabbitmq:
+    container_name: rabbitmq-fraud
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  mongodb:
+    container_name: mongodb-fraud
+    build:
+      context: ./db
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - "27017:27017"

@@ -1,0 +1,32 @@
+# Default values for helmchart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+fullnameOverride: case-tecnico-itau-fraud
+
+resources:
+  limits:
+    memory: 2Gi
+  requests:
+    memory: 1Gi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+env:
+  - name: JAVA_OPTS
+    value: "-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+
+itau:
+  resources:
+    oracledb:
+      enable: true
+      instance: fraud
+    rabbitmq:
+      enable: true
+      instance: batch

@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://fraud:fraud@localhost:27017/fraud
+server:
+  port: 8090

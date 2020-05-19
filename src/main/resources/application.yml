@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: case-tecnico-itau
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    port: ${RABBIT_PORT:5672}
+    username: ${RABBIT_USERNAME:guest}
+    password: ${RABBIT_PASSWORD:guest}
+  data:
+    mongodb:
+      uri: mongodb://${MONGODB_USERNAME:fraud}:${MONGODB_PASSWORD:fraud}@${MONGODB_HOST:localhost}:${MONGODB_PORT:27017}/${MONGODB_DATABASE:fraud}?replicaSet=${MONGODB_REPLICASET:rs0}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        exclude: beans,env
